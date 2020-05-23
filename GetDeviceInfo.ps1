@@ -18,7 +18,7 @@ Add-Type -Assembly System.Drawing
 $colleft = 15
 $colright = 195
 
-$ResolbeITURL = "https://resolveit.digital.nhs.uk/"
+$FormURL = "https://euc365.com/"
 
 $DateWhen = (Get-Date).ToShortDateString() #The date when an action is performed
 $TimeWhen = (Get-Date).ToLongTimeString() #The time when an action is performed 
@@ -98,25 +98,25 @@ Information gathered $DateWhen $TimeWhen
     $InfoForm.Controls.Add($iGLabel)
 
     # Create the Image Brandind 
-    $nHSDBrand = New-Object -TypeName windows.Forms.PictureBox
-    $nHSDBrand.Image = [System.Drawing.Image]::Fromfile("$CurrentFolder\NHSD.png")
-    $nHSDBrand.Location = New-Object -TypeName Drawing.Point 385, 20
-    $nHSDBrand.Height = 76
-    $nHSDBrand.Width = 98
-    $nHSDBrand.Visible = $true
-    $InfoForm.Controls.Add($nHSDBrand)
+    $brandLogo = New-Object -TypeName windows.Forms.PictureBox
+    $brandLogo.Image = [System.Drawing.Image]::Fromfile("$CurrentFolder\BrandPNG.png")
+    $brandLogo.Location = New-Object -TypeName Drawing.Point 385, 20
+    $brandLogo.Height = 76
+    $brandLogo.Width = 98
+    $brandLogo.Visible = $true
+    $InfoForm.Controls.Add($brandLogo)
 
-    # Create the 'Resolve IT' label
-    $rITLabel = New-Object -TypeName windows.Forms.LinkLabel
-    $rITLabel.Text = "$ResolbeITURL"
-    $rITLabel.LinkColor = "BLUE"
-    $rITLabel.ActiveLinkColor = "PURPLE"
-    $rITLabel.Font = New-Object -TypeName Drawing.Font("Segoe ui",12, [System.Drawing.FontStyle]::Regular)
-    $rITLabel.Location = New-Object -TypeName Drawing.Point $colleft, 45
-    $rITLabel.AutoSize = $true
-    $rITLabel.Visible = $true
-    $rITLabel.add_Click({[system.Diagnostics.Process]::start("$ResolbeITURL")}) 
-    $InfoForm.Controls.Add($rITLabel)
+    # Create the 'URL' label
+    $uRLLabel = New-Object -TypeName windows.Forms.LinkLabel
+    $uRLLabel.Text = "$FormURL"
+    $uRLLabel.LinkColor = "BLUE"
+    $uRLLabel.ActiveLinkColor = "PURPLE"
+    $uRLLabel.Font = New-Object -TypeName Drawing.Font("Segoe ui",12, [System.Drawing.FontStyle]::Regular)
+    $uRLLabel.Location = New-Object -TypeName Drawing.Point $colleft, 45
+    $uRLLabel.AutoSize = $true
+    $uRLLabel.Visible = $true
+    $uRLLabel.add_Click({[system.Diagnostics.Process]::start("$FormURL")}) 
+    $InfoForm.Controls.Add($uRLLabel)
 
     # Create the 'NOTE' label
     $cBNoteLabel = New-Object -TypeName windows.Forms.Label
