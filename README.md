@@ -1,3 +1,4 @@
+https://img.shields.io/twitter/url?style=for-the-badge
 # Get Device Information
 
 ## Introduction
@@ -24,10 +25,3 @@ A few things to **NOTE** when creating the EXE.
 - This can only be created using the **STA** Thread Apartment State 
 - This application does not require admin right to run so you do not need to select **Require administrator rights at runtime**
 
-    <div class="social__item">
-            <a target="_blank" href="https://www.linkedin.com/pub/steven-roberts/7a/707/409" class="social__icon--linkedin"><i class="icon--linkedin"></i></a>
-    </div>
-
-    <div class="social__item">
-            <a target="_blank" href="https://twitter.com/matchboxhero10" class="social__icon--twitter"><i class="icon--twitter"></i></a>
-    </div>
