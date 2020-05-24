@@ -15,9 +15,14 @@ NOTE: This is far from a finished or polished script and it still has a long way
 The script can be run as it stands from a Powershell prompt, you may however need to change the execution policy within your Powershell session by running **Set-ExecutionPolicy Bypass**. This however may be restricted by your Administrator. 
 
 ### Branding
-In this first release the Branding items are hard coded into the script, the Brand Logo within the form can be located by searching for **$brandLogo**, The form icon can also be changed by searching for **$InfoForm.icon**. 
+Settings for branding can be changed in the Settings.json file, This includes;
+- URL 
+- Icon
+- Logo (Including Height and Width)
 
-You may need to change the size parameters for the logo or you could resize the logo itself... Personally I wouldn't reccomend having the icon much larger as it would take over too much of the form. 
+ When amending the Logo and Icon, you can use a file is in the same directory by using **.\\\\** (This is because we are in JSON and using .\ does not suffice) before the file name intead of using a full path.
+
+You may need to change the size parameters for the logo or you could resize the logo itself... Personally I wouldn't reccomend having the icon much larger as it would take over too much of the form. These settings can however be amended in the settings.json file. 
 
 ### Making the script an EXE
 The script works when bundled into a .EXE file, I would reccomend [PS2EXE-GUI](https://gallery.technet.microsoft.com/scriptcenter/PS2EXE-GUI-Convert-e7cb69d5). 
