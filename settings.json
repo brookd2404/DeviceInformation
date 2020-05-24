@@ -1,0 +1,11 @@
+{
+    "Branding": {
+        "logo": {
+            "image": ".\\BrandPNG.png",
+            "height": "76",
+            "width": "98"
+        },
+        "FORMICON": ".\\GetDeviceInfo.ico", 
+        "URL": "https://euc365.com"
+    }
+}

@@ -1,14 +1,68 @@
-<#
-    Author: David Brook
-    Intension: This is to be used to get Machine information when logging a support call.
-    version: 3.0
+<#PSScriptInfo
+ 
+.VERSION 4.0
+ 
+.AUTHOR David Brook
+ 
+.COMPANYNAME EUC 365
+ 
+.COPYRIGHT
+ 
+.TAGS Microsoft Endpoint Manager; Intune, Azure AD, AAD
+ 
+.LICENSEURI
+ 
+.PROJECTURI
+ 
+.ICONURI
+ 
+.EXTERNALMODULEDEPENDENCIES
+ 
+.REQUIREDSCRIPTS
+ 
+.EXTERNALSCRIPTDEPENDENCIES
+ 
+.RELEASENOTES
+Version 4.0: Converted Setting to JSON for ease of editing
+Version 3.0: Added Branding 
+Version 2.0: Added Dynamic Formatting
+Version 1.0: Original published version.
+ 
 #>
 
 
-Write-Host "Gathering Information" -ForegroundColor Green
+<#
+.SYNOPSIS
+This script will gather information to assist in troubleshooting 
+ 
+.DESCRIPTION
+This will display the device name, serial number, model, manufacturer, Intune Device ID, Azure AD Device ID and IP Information 
 
-$host.UI.RawUI.WindowTitle = "$ENV:Computername Machine Information" #Sets the title of the powershell window
+.PARAMETER SettingsFile
+The location of a custom settings file
+Default: '$PSScriptRoot\settings.json'
+
+.EXAMPLE
+.\GetDeviceInfo.ps1 -SettingsFile '.\Settings2.json'
+#>
+
+
+[CmdletBinding()]
+param (
+    [Parameter()]
+    [ValidateNotNull()] 
+    [ValidateScript({Test-Path $_})]
+    [string]
+    $SettingsFile = "$PSScriptRoot\settings.json"
+)
+
+#Sets the title of the powershell window
+$host.UI.RawUI.WindowTitle = "$ENV:Computername Machine Information" 
+#This is to dispaly an output to the shell window when launching as an EXE
+Write-Host "Gathering Information" -ForegroundColor Green
 $CurrentFolder = Get-Location | Select-Object -ExpandProperty Path #Gets the current folder, Used for the icon 
+$Settings = Get-Content $SettingsFile | ConvertFrom-Json #Import the Settings file
+
 
 #Import the system assemblies
 Add-Type -Assembly System.Windows.Forms
@@ -17,8 +71,6 @@ Add-Type -Assembly System.Drawing
 #form alignments and height ad width variables
 $colleft = 15
 $colright = 195
-
-$FormURL = "https://euc365.com/"
 
 $DateWhen = (Get-Date).ToShortDateString() #The date when an action is performed
 $TimeWhen = (Get-Date).ToLongTimeString() #The time when an action is performed 
@@ -74,7 +126,7 @@ Information gathered $DateWhen $TimeWhen
     
     # Build Form
     $InfoForm = New-Object System.Windows.Forms.Form
-    $InfoForm.icon = "$CurrentFolder\GetDeviceInfo.ico"
+    $InfoForm.icon = "$($Settings.Branding.FormICON)"
     $InfoForm.Text = "$ENV:Computername Machine information"
     $InfoForm.Size = New-Object System.Drawing.Size(0,0)
     $InfoForm.BackColor = "White"
@@ -99,23 +151,23 @@ Information gathered $DateWhen $TimeWhen
 
     # Create the Image Brandind 
     $brandLogo = New-Object -TypeName windows.Forms.PictureBox
-    $brandLogo.Image = [System.Drawing.Image]::Fromfile("$CurrentFolder\BrandPNG.png")
+    $brandLogo.Image = [System.Drawing.Image]::Fromfile("$($Settings.Branding.logo.image)")
     $brandLogo.Location = New-Object -TypeName Drawing.Point 385, 20
-    $brandLogo.Height = 76
-    $brandLogo.Width = 98
+    $brandLogo.Height = $($Settings.Branding.logo.height)
+    $brandLogo.Width = $($Settings.Branding.logo.width)
     $brandLogo.Visible = $true
     $InfoForm.Controls.Add($brandLogo)
 
     # Create the 'URL' label
     $uRLLabel = New-Object -TypeName windows.Forms.LinkLabel
-    $uRLLabel.Text = "$FormURL"
+    $uRLLabel.Text = "$($Settings.Branding.URL)"
     $uRLLabel.LinkColor = "BLUE"
     $uRLLabel.ActiveLinkColor = "PURPLE"
     $uRLLabel.Font = New-Object -TypeName Drawing.Font("Segoe ui",12, [System.Drawing.FontStyle]::Regular)
     $uRLLabel.Location = New-Object -TypeName Drawing.Point $colleft, 45
     $uRLLabel.AutoSize = $true
     $uRLLabel.Visible = $true
-    $uRLLabel.add_Click({[system.Diagnostics.Process]::start("$FormURL")}) 
+    $uRLLabel.add_Click({[system.Diagnostics.Process]::start("$($Settings.Branding.URL)")}) 
     $InfoForm.Controls.Add($uRLLabel)
 
     # Create the 'NOTE' label
