@@ -1,4 +1,7 @@
+<a href="https://github.com/brookd2404/DeviceInformation/issues"><img alt="GitHub issues" src="https://img.shields.io/github/issues/brookd2404/DeviceInformation?style=for-the-badge"></a>
+<a href="https://twitter.com/intent/tweet?text=Look%20at%20This:&url=https%3A%2F%2Fgithub.com%2Fbrookd2404%2FDeviceInformation"><img alt="Twitter" src="https://img.shields.io/twitter/url?label=TWEET%20US&style=social&url=https%3A%2F%2Fgithub.com%2Fbrookd2404%2FDeviceInformation"></a>
 # Get Device Information
+<div style="text-align:center"><img src="https://i.imgur.com/DHffDxv.png?1" title="Device Info Form" style="float"/></div>
 
 ## Introduction
 This Windows Form is written in PowerShell to gather information to aid in troubleshooting devices that are either Hybrid or Only Azure AD Joined. This script will also Get the Intune Device ID if it exists. 
@@ -24,10 +27,3 @@ A few things to **NOTE** when creating the EXE.
 - This can only be created using the **STA** Thread Apartment State 
 - This application does not require admin right to run so you do not need to select **Require administrator rights at runtime**
 
-    <div class="social__item">
-            <a target="_blank" href="https://www.linkedin.com/pub/steven-roberts/7a/707/409" class="social__icon--linkedin"><i class="icon--linkedin"></i></a>
-    </div>
-
-    <div class="social__item">
-            <a target="_blank" href="https://twitter.com/matchboxhero10" class="social__icon--twitter"><i class="icon--twitter"></i></a>
-    </div>
