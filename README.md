@@ -1,6 +1,7 @@
 <a href="https://github.com/brookd2404/DeviceInformation/issues"><img alt="GitHub issues" src="https://img.shields.io/github/issues/brookd2404/DeviceInformation?style=for-the-badge"></a>
-<a href="https://twitter.com/intent/tweet?text=Wow:&url=https%3A%2F%2Fgithub.com%2Fbrookd2404%2FDeviceInformation"><img alt="Twitter" src="https://img.shields.io/twitter/url?style=social"></a>
+<a href="https://twitter.com/intent/tweet?text=Look%20at%20This:&url=https%3A%2F%2Fgithub.com%2Fbrookd2404%2FDeviceInformation"><img alt="Twitter" src="https://img.shields.io/twitter/url?label=TWEET%20US&style=social&url=https%3A%2F%2Fgithub.com%2Fbrookd2404%2FDeviceInformation"></a>
 # Get Device Information
+<div style="text-align:center"><a href="https://imgur.com/DHffDxv"><img src="https://i.imgur.com/DHffDxv.png?1" title="source: imgur.com" /></a></div>
 
 ## Introduction
 This Windows Form is written in PowerShell to gather information to aid in troubleshooting devices that are either Hybrid or Only Azure AD Joined. This script will also Get the Intune Device ID if it exists. 
