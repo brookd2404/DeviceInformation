@@ -1,4 +1,5 @@
-https://img.shields.io/twitter/url?style=for-the-badge
+<a href="https://github.com/brookd2404/DeviceInformation/issues"><img alt="GitHub issues" src="https://img.shields.io/github/issues/brookd2404/DeviceInformation?style=for-the-badge"></a>
+<a href="https://twitter.com/intent/tweet?text=Wow:&url=https%3A%2F%2Fgithub.com%2Fbrookd2404%2FDeviceInformation"><img alt="Twitter" src="https://img.shields.io/twitter/url?style=social"></a>
 # Get Device Information
 
 ## Introduction
